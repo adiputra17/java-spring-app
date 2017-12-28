@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashbord Pencatatan Narapidana</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div style="margin-top: 20px" class="container">
+        <h2>Masukkan Data NAPI</h2>
+        <form action="#" th:action="@{/create}" th:object="${napi}" method="post" >
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" class="form-control" th:field="*{nama}" placeholder="Nama" />
+            </div>
+            <div class="form-group">
+                <label>Alamat</label>
+                <input type="text" class="form-control" th:field="*{alamat}" placeholder="Alamat" />
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <input type="text" class="form-control" th:field="*{jen_kel}" placeholder="Jenis Kelamin" />
+            </div>
+            <div class="form-group">
+                <label>Faktor</label>
+                <input type="text" class="form-control" th:field="*{faktor}" placeholder="Faktor" />
+            </div>
+            <div class="form-group">
+                <label>Lama Penjara</label>
+                <input type="text" class="form-control" th:field="*{lama}" placeholder="Lama Penjara" />
+            </div>
+            <div class="form-group">
+                <label>Tanggal Masuk</label>
+                <input type="text" class="form-control" th:field="*{masuk}" placeholder="Tanggal Masuk" />
+            </div>
+            <div class="form-group">
+                <label>Tanggal Keluar</label>
+                <input type="text" class="form-control" th:field="*{keluar}" placeholder="Tanggal Keluar" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+        <br/><br/><br/>
+    </div>
+</body>
+</html>

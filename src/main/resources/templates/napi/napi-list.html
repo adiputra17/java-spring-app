@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashbord Pencatatan Narapidana</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!--    ONLINE-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>List Narapidana</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/" class="btn btn-primary">Back</a>	
+                <a href="/napi/input" class="btn btn-success">Input</a>
+                <a href="/napi/statistic" class="btn btn-info">Statistika Kasus</a>
+            </div>
+        </div>
+        <br/>
+        <table class="table table-striped">
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Jenis Kelamin</th>
+                <th>Faktor (Kasus)</th>
+                <th>Lama Penjara</th>
+                <th>Tgl Masuk</th>
+                <th>Tgl Keluar</th>
+                <th>Opsi</th>
+            </tr>
+            <tr th:each="napi : ${napimodel}">
+                <td th:text="${no}"></td>
+                <td th:text="${napi.nama}"></td>
+                <td th:text="${napi.alamat}"></td>
+                <td th:text="${napi.jen_kel}"></td>
+                <td th:text="${napi.faktor}"></td>
+                <td th:text="${napi.lama}"></td>
+                <td th:text="${napi.masuk}"></td>
+                <td th:text="${napi.keluar}"></td>
+                <td>
+                    <a th:href="@{/napi/edit/{id}(id=${napi.id})}" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-edit" /></a>
+                    <button type="submit" data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"/></button>
+                </td>
+                <!-- Modal DELETE-->
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Narapidana</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                            <p>Anda yakin ingin menghapus <b><span th:text="${napi.nama}"/></b> ?</p>
+                        </div>
+                        <form th:action="@{/napi/delete/{id}(id=${napi.id})}" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

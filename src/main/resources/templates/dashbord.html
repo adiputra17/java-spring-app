@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashbord Pencatatan Narapidana</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div style="margin-top: 20px" class="container">
+        <h2>DASHBORD</h2>
+        <a href="/form_create" class="btn btn-success">Tambah NAPI</a>
+        <br/><br/><br/>
+        <table class="table table-striped">
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Jenis Kelasmin</th>
+                <th>Faktor</th>
+                <th>Lama Penjara</th>
+                <th>Tgl Masuk</th>
+                <th>Tgl Keluar</th>
+                <th>Opsi</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Alan</td>
+                <td>Bawean</td>
+                <td>Laki-laki</td>
+                <td>Penculikan anak</td>
+                <td>100 tahun</td>
+                <td>12-01-2001</td>
+                <td>12-01-2010</td>
+                <td>
+                    <a href="/form_edit" class="btn btn-info">Edit</a>
+                    <a href="/delete" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
